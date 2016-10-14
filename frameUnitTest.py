@@ -25,7 +25,7 @@ class FrameSpareAfterExtraBallTestCase(SimpleFrameTestCase):
   def runTest(self):
     self.frame.throw(6)
     self.frame.throw(4)
-    self.frame.throw(3)
+    self.frame.throw(3) # accepted in favor of last frame
     self.frame.throw(7) # ignored
     self.assertEqual(self.frame.points, 13, 'Wrong score')
     self.assertEqual(self.frame.extraBalls, 0, 'Wrong extra balls')
@@ -49,7 +49,7 @@ class FrameStrikeAfterSecondExtraBallTestCase(SimpleFrameTestCase):
   def runTest(self):
     self.frame.throw(10)
     self.frame.throw(7)
-    self.frame.throw(3)
+    self.frame.throw(3) # accepted in favor of last frame
     self.frame.throw(6) # ignored
     self.assertEqual(self.frame.points, 20, 'Wrong score')
     self.assertEqual(self.frame.extraBalls, 0, 'Wrong extra balls')

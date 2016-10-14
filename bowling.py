@@ -20,11 +20,11 @@ class Game:
       frame.sumExtraPoints(pins)
     
   def updateCurrentFrame(self):
-    if self.frames[-1].finished and len(self.frames) < 10:
+    if self.frames[-1].finished and len(self.frames) < self.totalFrames:
       self.frames.append(frame.Frame())
 
   def getScore(self):
     return reduce(lambda x, y: x + y, map(lambda x: x.points, self.frames))
 
   def gameEnded(self):
-    return len(self.frames) == 10 and self.frames[-1].finished == True and self.frames[-1].extraBalls == 0
+    return len(self.frames) == self.totalFrames and self.frames[-1].finished == True and self.frames[-1].extraBalls == 0
