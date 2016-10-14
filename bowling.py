@@ -24,10 +24,7 @@ class Game:
       self.frames.append(frame.Frame())
 
   def getScore(self):
-    s = 0
-    for frame in self.frames:
-      s += frame.points
-    return s
+    return reduce(lambda x, y: x + y, map(lambda x: x.points, self.frames))
 
   def gameEnded(self):
     return len(self.frames) == 10 and self.frames[-1].finished == True and self.frames[-1].extraBalls == 0
